@@ -1,0 +1,185 @@
+body {
+	background-color: #5C9EAD;
+	color: #FFF;
+	font-family: 'Roboto Slab', serif;
+	transition: margin-left .5s, margin-right .5s;
+}
+
+.side_menu {
+	width: 400px;
+	background-color: #326273;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: -400px;
+	transition: left .5s;
+	letter-spacing: 1px;
+}
+
+.side_menu .closebtn {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 2em;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.side_menu .closebtn:hover {
+	color: #5C9EAD;
+}
+
+.side_menu h1 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.side_menu .rewards .reward {
+	padding: 10px;
+	border-top: 1px solid #5C9EAD;
+}
+
+.side_menu .rewards .reward:last-child {
+	border-bottom: 1px solid #5C9EAD;
+}
+
+.side_menu .rewards .reward .text {
+	display: inline-block;
+	width: 70%;
+}
+
+.side_menu .rewards .reward .option {
+	float: right;
+	position: relative;
+	top: 15px;
+}
+
+.side_menu .rewards .reward .option a {
+	text-decoration: none;
+	font-weight: 700;
+	color: #bf2525;
+}
+
+.about {
+	height: 100%;
+	width: 400px;
+	background-color: #326273;
+	position: fixed;
+	top: 0;
+	right: -400px;
+	transition: right .5s;
+}
+
+.about .closebtn {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	font-size: 2em;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.about .closebtn:hover {
+	color: #5C9EAD;
+}
+
+.about p {
+	padding: 25px;
+}
+
+.about p a {
+	color: #FFF;
+}
+
+.about p a:hover {
+	color: #5C9EAD;
+}
+
+.menu img {
+	width: 32px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	display: inline;
+	padding: 10px;
+}
+
+ul li a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #326273;
+	font-size: 1.3em;
+}
+
+ul li a:hover {
+	cursor: pointer;
+	color: #FFF;
+}
+
+ul .right {
+	float: right;
+}
+
+.brand a {
+	color: #326273;
+}
+
+.brand span {
+	color: #FFF;
+	font-weight: 700;
+}
+
+.panel {
+	width: 65%;
+	margin: auto;
+	margin-top: 100px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.panel .content img {
+	width: 20%;
+}
+
+.panel .content p {
+	margin-top: 50px;
+	font-size: 1.8em;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.panel .content p span {
+	color: #326273;
+}
+
+.button {
+	width: 20%;
+	margin: auto;
+	margin-top: 100px;
+	background-color: #326273;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.button a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #FFF;
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.button:hover {
+	cursor: pointer;
+	background-color: #FFF;
+}
+
+.button:hover a {
+	color: #326273;
+}
