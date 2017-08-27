@@ -6,9 +6,16 @@ var rewards = [
 	'For your next break, get 15 more minutes'
 ]
 
+var pomodoroTime = 25
+
 let getReward = function() {
 	let index = Math.floor(Math.random() * rewards.length)
-	alert(rewards[index])
+	let timerBox = document.getElementById('timer-box')
+	timerBox.style.display = 'none';
+	let rewardBox = document.getElementById('reward-box')
+	let rewardText = document.getElementById('reward-text')
+	rewardText.innerHTML = rewards[index]
+	rewardBox.style.display = 'block'
 }
 
 let removeReward = function() {
@@ -60,6 +67,42 @@ let addReward = function(reward) {
 	//option_elem.appendChild(a)
 	reward_elem.appendChild(option_elem)
 	document.getElementById('rewards').appendChild(reward_elem)
+}
+
+let startTimer = function() {
+	if(timer)
+		clearInterval(timer)
+	time = 0
+	timer = setInterval(tick, 1000)
+	let banana = document.getElementById('banana-img')
+	banana.style.display = 'none';
+	let rewardBox = document.getElementById('reward-box')
+	rewardBox.style.display = 'none';
+	let timerBox = document.getElementById('timer-box')
+	let timerText = document.getElementById('timer')
+	timerText.innerHTML = pomodoroTime + ':00'
+	timerBox.style.display = 'block';
+}
+
+let stopTimer = function() {
+	clearInterval(timer)
+}
+
+let tick = function() {
+	time += 1
+	let timerText = document.getElementById('timer')
+	let value = (60 * pomodoroTime) - time
+	let seconds = value % 60
+	let minutes = (value - seconds) / 60
+	let text = minutes + ':' + seconds
+	if(seconds < 10)
+		text = minutes + ':0' + seconds
+	if(minutes <= 0 && seconds <= 0) {
+		text = 'Over !'
+		stopTimer()
+		getReward()
+	}
+	timerText.innerHTML = text
 }
 
 let load = function() {

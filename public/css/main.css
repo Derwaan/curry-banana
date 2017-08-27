@@ -126,7 +126,9 @@ ul .right {
 	float: right;
 }
 
-.brand a {
+.brand {
+	font-size: 1.3em;
+	text-transform: uppercase;
 	color: #326273;
 }
 
@@ -182,4 +184,14 @@ ul .right {
 
 .button:hover a {
 	color: #326273;
+}
+
+.timer-box {
+	font-size: 3.5em;
+	display: none;
+}
+
+.reward-box {
+	font-size: 2em;
+	display: none;
 }

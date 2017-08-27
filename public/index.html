@@ -31,9 +31,7 @@
 				</a>
 				</li>
 				<li class="brand">
-				<a href="#">
 					<span>Curry</span> Banana
-				</a>
 				</li>
 				<li class="right">
 				<a onclick="openAbout()">
@@ -45,15 +43,21 @@
 
 		<div class="panel">
 			<div class="content">
-				<div>
+				<div class="banana-img" id="banana-img">
 					<img src="images/banana.png" alt="Banana">
 				</div>
+				<div class="timer-box" id="timer-box">
+					<p id="timer" class="timer"></p>
+				</div>
+				<div class="reward-box" id="reward-box">
+					<p id="reward-text" class="reward-text"></p>
+				</div>
 				<div>
-					<p>Did you work hard ? <br> Time for a reward ! <br> Press the <span>Launch</span> button and receive a reward.</p>
+					<p>You want to work harder ? <br> Press the <span>Launch</span> button and work for 25 minutes ! <br> Then, receive a reward for your hard work 💛</p>
 				</div>
 			</div>
 			<div class="button">
-				<a href="#" onclick="getReward()">Launch</a>
+				<a href="#" onclick="startTimer()">Launch</a>
 			</div>
 		</div>
 
