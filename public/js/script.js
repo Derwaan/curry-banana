@@ -7,15 +7,15 @@ var rewards = [
 ]
 
 var pomodoroTime = 25
+var shortBreakTime = 5
+var longBreakTime = 15
+var actualTime = 0
+var streakCount = 0
+var pomodoroMax = 4
 
 let getReward = function() {
 	let index = Math.floor(Math.random() * rewards.length)
-	let timerBox = document.getElementById('timer-box')
-	timerBox.style.display = 'none';
-	let rewardBox = document.getElementById('reward-box')
-	let rewardText = document.getElementById('reward-text')
-	rewardText.innerHTML = rewards[index]
-	rewardBox.style.display = 'block'
+	return rewards[index]
 }
 
 let removeReward = function() {
@@ -69,19 +69,45 @@ let addReward = function(reward) {
 	document.getElementById('rewards').appendChild(reward_elem)
 }
 
-let startTimer = function() {
+let startTimer = function(timerInit) {
 	if(timer)
 		clearInterval(timer)
 	time = 0
+	actualTime = timerInit
 	timer = setInterval(tick, 1000)
 	let banana = document.getElementById('banana-img')
 	banana.style.display = 'none';
-	let rewardBox = document.getElementById('reward-box')
-	rewardBox.style.display = 'none';
 	let timerBox = document.getElementById('timer-box')
 	let timerText = document.getElementById('timer')
-	timerText.innerHTML = pomodoroTime + ':00'
+	timerText.innerHTML = actualTime + ':00'
 	timerBox.style.display = 'block';
+
+	let otherButtonsBox = document.getElementById('other_buttons_box')
+	let breakButtonBox = document.getElementById('break_button_box')
+	otherButtonsBox.style.display = 'inline'
+	breakButtonBox.style.display = 'none'
+	let launchButton = document.getElementById('launch_button')
+	let pauseButton = document.getElementById('pause_button')
+	launchButton.style.display = 'none'
+	pauseButton.style.display = 'inline'
+}
+
+let restartTimer = function() {
+	if(timer)
+		clearInterval(timer)
+	timer = setInterval(tick, 1000)
+	let restartButton = document.getElementById('restart_button')
+	let pauseButton = document.getElementById('pause_button')
+	restartButton.style.display = 'none'
+	pauseButton.style.display = 'inline'
+}
+
+let pauseTimer = function() {
+	stopTimer()
+	let pauseButton = document.getElementById('pause_button')
+	let restartButton = document.getElementById('restart_button')
+	pauseButton.style.display = 'none'
+	restartButton.style.display = 'inline'
 }
 
 let stopTimer = function() {
@@ -91,16 +117,47 @@ let stopTimer = function() {
 let tick = function() {
 	time += 1
 	let timerText = document.getElementById('timer')
-	let value = (60 * pomodoroTime) - time
+	let value = (60 * actualTime) - time
 	let seconds = value % 60
 	let minutes = (value - seconds) / 60
 	let text = minutes + ':' + seconds
 	if(seconds < 10)
 		text = minutes + ':0' + seconds
 	if(minutes <= 0 && seconds <= 0) {
-		text = 'Over !'
 		stopTimer()
-		getReward()
+		let otherButtonsBox = document.getElementById('other_buttons_box')
+		otherButtonsBox.style.display = 'none'
+		let breakButtonBox = document.getElementById('break_button_box')
+		let breakButton = document.getElementById('break_button')
+
+		if(actualTime == pomodoroTime) {
+			streakCount += 1
+			text = streakCount + ' pomodori achieved !'
+			if(streakCount == 1)
+				text = '1 pomodoro achieved !'
+
+			breakButton.innerHTML = shortBreakTime +'\' Break'
+			breakButtonBox.style.display = 'inline'
+			breakButton.setAttribute('onclick', 'startTimer(shortBreakTime)')
+
+			if(streakCount == pomodoroMax) {
+				text = getReward()
+				streakCount = 0
+
+				breakButton.innerHTML = longBreakTime +'\' Break'
+				breakButtonBox.style.display = 'inline'
+				breakButton.setAttribute('onclick', 'startTimer(longBreakTime)')
+			}
+
+		} else {
+			text = 'Break over !'
+			otherButtonsBox.style.display = 'inline'
+			breakButtonBox.style.display = 'none'
+			let pauseButton = document.getElementById('pause_button')
+			let launchButton = document.getElementById('launch_button')
+			pauseButton.style.display = 'none'
+			launchButton.style.display = 'inline'
+		}
 	}
 	timerText.innerHTML = text
 }

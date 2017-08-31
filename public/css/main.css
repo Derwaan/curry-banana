@@ -161,12 +161,11 @@ ul .right {
 }
 
 .button {
-	width: 20%;
-	margin: auto;
-	margin-top: 100px;
 	background-color: #326273;
-	padding: 10px;
+	padding: 15px;
 	border-radius: 10px;
+	display: inline;
+	margin: 7px;
 }
 
 .button a {
@@ -193,5 +192,23 @@ ul .right {
 
 .reward-box {
 	font-size: 2em;
+	display: none;
+}
+
+.buttons {
+	width: 50%;
+	margin-top: 100px;
+	margin: auto;
+}
+
+#pause_button {
+	display:none;
+}
+
+#restart_button {
+	display: none;
+}
+
+#break_button_box  {
 	display: none;
 }

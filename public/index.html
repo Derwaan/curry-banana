@@ -49,15 +49,19 @@
 				<div class="timer-box" id="timer-box">
 					<p id="timer" class="timer"></p>
 				</div>
-				<div class="reward-box" id="reward-box">
-					<p id="reward-text" class="reward-text"></p>
-				</div>
 				<div>
 					<p>You want to work harder ? <br> Press the <span>Launch</span> button and work for 25 minutes ! <br> Then, receive a reward for your hard work 💛</p>
 				</div>
 			</div>
-			<div class="button">
-				<a href="#" onclick="startTimer()">Launch</a>
+			<div class="buttons">
+				<div class="button" id="other_buttons_box">
+					<a href="#" onclick="startTimer(pomodoroTime)" id="launch_button">Launch</a>
+					<a href="#" onclick="pauseTimer()" id="pause_button">Pause</a>
+					<a href="#" onclick="restartTimer()" id="restart_button">Restart</a>
+				</div>
+				<div class="button" id="break_button_box">
+					<a href="#" onclick="startTimer(shortBreakTime)" id="break_button">5' Break</a>
+				</div>
 			</div>
 		</div>
 
