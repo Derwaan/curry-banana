@@ -1,0 +1,229 @@
+$white: #FFF;
+$black: #000;
+
+$primary-color: #5C9EAD;
+$secondary-color: #326273;
+
+$yellow: #F3D913;
+$dark-yellow: #F5C802;
+$red: #db4432;
+$green: #1a7c24;
+
+$font: 'Roboto Slab', serif;
+
+/* -------
+ * GENERAL
+ * -------
+ */
+
+body {
+	background-color: $primary-color;
+	color: $white;
+	font-family: $font;
+	margin: 0;
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+}
+
+
+.button {
+	display: inline-block;
+	margin: auto;
+	width: 20%;
+
+	color: $white;
+
+	border-radius: 10px;
+}
+
+.button-primary {
+	background-color: $secondary-color;
+}
+
+.button-success {
+	background-color: $green;
+}
+
+.button-warning {
+	background-color: $dark-yellow;
+}
+
+.button-alert {
+	background-color: $red;
+}
+
+/* ------
+ *  MENU
+ * ------
+ */
+
+#menu {
+	list-style: none;
+
+	font-size: 1.5em;
+	text-transform: uppercase;
+	display: inline-block;
+
+	padding: 0;
+	margin: 0;
+
+	transition: margin-left .5s;
+
+	li {
+		float: left;
+	
+		a {
+			display: block;
+			padding: 8px;
+			color: $secondary-color;
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+
+	.brand {
+		span {
+			color: $white;
+			font-weight: 700;
+		}
+	}
+}
+
+/* -------------
+ * REWARDS PANEL
+ * -------------
+ */
+
+#rewards_panel {
+	height: 100%;
+	width: 400px;
+	position: fixed;
+	top: 0;
+	left: -400px;
+
+	transition: left .5s;
+
+	background-color: $secondary-color;
+
+	.close_button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 10px;
+		font-weight: 700;
+		font-size: 1.5em;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		
+		li {
+			padding: 30px;
+			border-bottom: 1px solid $primary-color;
+			&:first-child {
+				border-top: 1px solid $primary-color;
+			}
+
+			a {
+				color: $red;
+				float: right;
+			}
+		}
+	}
+
+}
+
+/* -----------
+ * ABOUT PANEL
+ * -----------
+ */
+
+#about_panel {
+	height: 100%;
+	position: fixed;
+	width: 400px;
+	top: 0;
+	right: -400px;
+
+	transition: right .5s;
+
+	background-color: $secondary-color;
+
+	.close_button {
+		font-weight: 700;
+		font-size: 1.5em;
+		margin: 10px;
+	}
+
+	p {
+		margin: 30px;
+		a {
+			text-decoration: underline;
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+/* -------
+ * CONTENT
+ * -------
+ */
+
+.content {
+	margin: 120px auto;
+	width: 70%;
+
+	transition: left .5s, right .5s;
+
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: 700;
+
+	img {
+		width: 15%;
+		margin-bottom: 50px;
+		margin-right: 50px;
+		vertical-align: middle;
+		padding: 10px;
+	}
+
+	#timer {
+		color: $white;
+		font-weight: 700;
+		font-size: 4em;
+	}
+
+	p {
+		margin: 50px;
+	}
+
+	span {
+		color: $secondary-color;
+	}
+
+	#stop_button, #break_button, #relaunch_button {
+		display: none;
+	}
+}
+
+/* -------------
+ * BREAK OPTIONS
+ * -------------
+ */
+
+#break_options {
+	color: $black;
+}
