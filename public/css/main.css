@@ -138,7 +138,7 @@ a {
     margin: 50px; }
   .content span {
     color: #326273; }
-  .content #stop_button, .content #break_button, .content #relaunch_button {
+  .content #stop_button, .content #break_button, .content #relaunch_button, .content #pause_button {
     display: none; }
 
 /* -------------

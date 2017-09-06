@@ -18,13 +18,14 @@ $(() => {
 		counter()
 	})
 
-	$("#stop_button").click(() => {
+	$("#pause_button").click(() => {
 		clearInterval(timer)
 		pause = new Date
 		paused = true
 
 		$("#relaunch_button").css("display", "inline-block")
-		$("#stop_button").css("display", "none")
+		$("#stop_button").css("display", "inline-block")
+		$("#pause_button").css("display", "none")
 		$("#break_button").css("display", "none")
 	})
 
@@ -32,8 +33,21 @@ $(() => {
 		counter()
 
 		$("#relaunch_button").css("display", "none")
-		$("#stop_button").css("display", "inline-block")
+		$("#stop_button").css("display", "none")
+		$("#pause_button").css("display", "inline-block")
 		$("#break_button").css("display", "inline-block")
+	})
+
+	$("#stop_button").click(() => {
+		clearInterval(timer)
+
+		$("#timer").text("25:00")
+		$("title").html("Curry Banana")
+		amount = 25
+
+		$("#relaunch_button").css("display", "none")
+		$("#stop_button").css("display", "none")
+		$("#launch_button").css("display", "inline-block")
 	})
 })
 
@@ -63,7 +77,7 @@ let counter = function() {
 
 
 		$("#launch_button").css("display", "none")
-		$("#stop_button").css("display", "inline-block")
+		$("#pause_button").css("display", "inline-block")
 		$("#break_button").css("display", "inline-block")
 	}, 500)
 }
