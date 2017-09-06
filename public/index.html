@@ -4,68 +4,94 @@
 		<title>Curry Banana</title>
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+		<link type="text/css" rel="stylesheet" href="css/jquery.dropdown.min.css" />
+
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			crossorigin="anonymous" defer></script>
+		<script src="js/navigation.js" defer></script>
+		<script src="js/timer.js" defer></script>
+		<script type="text/javascript" src="js/jquery.dropdown.min.js" defer></script>
 	</head>
 
-	<div class="side_menu" id="side_menu">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-		<h1>Rewards</h1>
-		<div class="rewards" id="rewards">
-		</div>
-	</div>
-
-	<div class="about" id="about">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeAbout()">&times;</a>
-		<p>This project was created by <a href="https://linkedin.com/in/derwaan">Julien Gomez</a> (<a href="https://github.com/Derwaan">@Derwaan</a>).</p>
-		<p>The source of this project can be found <a href="https://github.com/derwaan/curry-banana">here</a>.</p>
-	</div>
-
 	<body>
+	<!-- REWARDS PANEL -->
+	<div id="rewards_panel">
+		<a href="javascript:void(0)" class="close_button" id="close_rewards">&times;</a>
+		<h1>Rewards</h1>
+		<ul id="rewards">
+			<li>
+				Eat a delicious snack <a href="javascript:void(0)">x</a>
+			</li>
+			<li>
+				Watch an episode of your favorite show <a href="javascript:void(0)">x</a>
+			</li>
+			<li>
+				Tonight, relax in front of a movie <a href="javascript:void(0)">x</a>
+			</li>
+			<li>
+				You got 5 minutes on social media. Go ! <a href="javascript:void(0)">x</a>
+			</li>
+			<li>
+				For your next break, get 15 more minutes <a href="javascript:void(0)">x</a>
+			</li>
+		</ul>
+	</div>
 
-		<div class="menu">
-			<ul>
-				<li>
-				<a onclick="openMenu()">
-					<i class="fa fa-bars" aria-hidden="true"></i>
-				</a>
-				</li>
-				<li class="brand">
-					<span>Curry</span> Banana
-				</li>
-				<li class="right">
-				<a onclick="openAbout()">
-					About
-				</a>
-				</li>
-			</ul>
-		</div>
+	<!-- ABOUT PANEL -->
+	<div id="about_panel">
+		<a href="javascript:void(0)" class="close_button" id="close_about">&times;</a>
+		<p>
+			This project was created by <a href="https://linkedin.com/in/derwaan">Julien Gomez</a> (<a href="https://github.com/Derwaan">@Derwaan</a>).</p>
+		<p>
+			The source of this project can be found <a href="https://github.com/derwaan/curry-banana">here</a>.
+		</p>
+	</div>
 
-		<div class="panel">
-			<div class="content">
-				<div class="banana-img" id="banana-img">
-					<img src="images/banana.png" alt="Banana">
-				</div>
-				<div class="timer-box" id="timer-box">
-					<p id="timer" class="timer"></p>
-				</div>
-				<div>
-					<p>You want to work harder ? <br> Press the <span>Launch</span> button and work for 25 minutes ! <br> Then, receive a reward for your hard work 💛</p>
-				</div>
-			</div>
-			<div class="buttons">
-				<div class="button" id="other_buttons_box">
-					<a href="#" onclick="startTimer(pomodoroTime)" id="launch_button">Launch</a>
-					<a href="#" onclick="pauseTimer()" id="pause_button">Pause</a>
-					<a href="#" onclick="restartTimer()" id="restart_button">Restart</a>
-				</div>
-				<div class="button" id="break_button_box">
-					<a href="#" onclick="startTimer(shortBreakTime)" id="break_button">5' Break</a>
-				</div>
-			</div>
-		</div>
+	<!-- MENU -->
+	<ul id="menu">
+		<li>
+			<a href="javascript:void(0)" id="open_rewards">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</a>
+		</li>
+		<li class="brand">
+			<a href="#"><span>Curry</span> Banana</a>
+		</li>
+		<li class="right" id="open_about">
+			<a href="javascript:void(0)">
+				About
+			</a>
+		</li>
+	</ul>
+
+	<div class="content">
+		<img src="images/banana.png" alt="Banana">
+		<span id="timer">25:00</span>
+		<p>
+			You want to work harder ? <br> 
+			Press the <span>Launch</span> button and work for 25 minutes ! <br> 
+			Then, receive a reward for your hard work 💛
+		</p>
+
+		<a href="javascript:void(0)" class="button button-primary" id="launch_button">Launch</a>
+		<a href="javascript:void(0)" class="button button-alert" id="stop_button">Stop</a>
+		<a href="javascript:void(0)" class="button button-primary" id="break_button" data-jq-dropdown="#break_options">Break</a>
+		<a href="javascript:void(0)" class="button button-success" id="relaunch_button">Restart</a>
+
+	</div>
+
+	<div id="break_options" class="jq-dropdown jq-dropdown-tip">
+		<ul class="jq-dropdown-menu">
+			<li><a href="javascript:void(0)" id="short_break_button">5 minutes</a></li>
+			<li><a href="javascript:void(0)" id="long_break_button">15 minutes</a></li>
+		</ul>
+	</div>
 
 	</body>
-	<script src="js/script.js"></script>
 </html>
 
