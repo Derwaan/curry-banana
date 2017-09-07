@@ -60,24 +60,28 @@
 	<div class="content">
 		<img src="images/banana.png" alt="Banana">
 		<span id="timer">25:00</span>
-		<p>
-			You want to work harder ? <br> 
-			Press the <span>Launch</span> button and work for 25 minutes ! <br> 
-			Then, receive a reward for your hard work 💛
-		</p>
+		<div id="text">
+			<p>
+				You want to work harder ? <br> 
+				Press the <span>Launch</span> button and work for 25 minutes ! <br> 
+				Then, receive a reward for your hard work 💛
+			</p>
+		</div>
 
 		<a href="javascript:void(0)" class="button button-primary" id="launch_button">Launch</a>
 		<a href="javascript:void(0)" class="button button-alert" id="pause_button">Pause</a>
 		<a href="javascript:void(0)" class="button button-primary" id="break_button" data-jq-dropdown="#break_options">Break</a>
 		<a href="javascript:void(0)" class="button button-primary" id="relaunch_button">Restart</a>
 		<a href="javascript:void(0)" class="button button-alert" id="stop_button">Stop</a>
+		<a href="javascript:void(0)" class="button button-primary" id="short_break_button">5' Break</a>
+		<a href="javascript:void(0)" class="button button-primary" id="long_break_button">15' Break</a>
 
 	</div>
 
 	<div id="break_options" class="jq-dropdown jq-dropdown-tip">
 		<ul class="jq-dropdown-menu">
-			<li><a href="javascript:void(0)" id="short_break_button">5 minutes</a></li>
-			<li><a href="javascript:void(0)" id="long_break_button">15 minutes</a></li>
+			<li><a href="javascript:void(0)" id="short_break_action">5 minutes</a></li>
+			<li><a href="javascript:void(0)" id="long_break_action">15 minutes</a></li>
 		</ul>
 	</div>
 

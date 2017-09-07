@@ -74,6 +74,10 @@ function addReward(msg) {
 	saveCookie()
 }
 
+function getReward() {
+	return rewards[Math.floor(Math.random()*rewards.length)];
+}
+
 $(() => {
 
 	var rewards_cookie = Cookies.get('rewards')
