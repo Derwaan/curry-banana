@@ -104,8 +104,11 @@ a {
 	position: fixed;
 	top: 0;
 	left: -400px;
+	font-size: 1.2em;
 
 	transition: left .5s;
+
+	overflow: scroll;
 
 	background-color: $secondary-color;
 
@@ -128,7 +131,7 @@ a {
 		padding: 0;
 		
 		li {
-			padding: 30px;
+			padding: 30px 10px;
 			border-bottom: 1px solid $primary-color;
 			&:first-child {
 				border-top: 1px solid $primary-color;
@@ -141,6 +144,31 @@ a {
 		}
 	}
 
+	#add_reward {
+		outline: none;
+		padding: 30px 10px;
+		background-color: $secondary-color;
+		border: 0;
+	}
+
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: $primary-color;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: $primary-color;
+	opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: $primary-color;
+	opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: $primary-color;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: $primary-color;
 }
 
 /* -----------
