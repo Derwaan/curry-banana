@@ -54,6 +54,17 @@ a {
   #menu .brand span {
     color: #FFF;
     font-weight: 700; }
+  #menu .brand i {
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    left: -5px;
+    font-style: normal;
+    font-size: 0.4em;
+    color: #FFF;
+    background-color: #326273;
+    border-radius: 8px;
+    padding: 3px; }
 
 /* -------------
  * REWARDS PANEL

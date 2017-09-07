@@ -90,6 +90,19 @@ a {
 			color: $white;
 			font-weight: 700;
 		}
+
+		i {
+			display: inline-block;
+			position: relative;
+			top: -15px;
+			left: -5px;
+			font-style: normal;
+			font-size: 0.4em;
+			color: $white;
+			background-color: $secondary-color;
+			border-radius: 8px;
+			padding: 3px;
+		}
 	}
 }
 
