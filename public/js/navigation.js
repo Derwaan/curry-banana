@@ -24,4 +24,10 @@ $(() => {
 		$('.content').css('position', 'relative')
 		$('.content').css('right', '0px')
 	})
+
+	$("#contact_panel").hover(() => {
+		$("#contact_panel").css('right', '0')
+	}, () => {
+		$("#contact_panel").css('right', '-357px')
+	})
 });
