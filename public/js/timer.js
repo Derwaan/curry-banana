@@ -42,17 +42,17 @@ function over() {
 	switch (amount) {
 		case pomodoroAmount:
 			if (count < 3) {
+				notify('Time to take a short break ;-)')
 				switchToShortBreak()
 			} else {
+				notify('You have received a reward !')
 				switchToLongBreak()
 			}
 			break
 		case shortBreakAmount:
-			count = (count + 1) % 4
-			switchToLaunch()
-			break
 		case longBreakAmount:
 			count = (count + 1) % 4
+			notify('Ready for an another round ?')
 			switchToLaunch()
 			break
 		default:
@@ -67,7 +67,7 @@ function switchText(mode) {
 			break
 
 		case "short_break":
-			$("#text").html("<p>Time to take a short break ;-)</p>")
+			$("#text").html(`<p>Time to take a short break ;-)</p>`)
 			break
 
 		case "reward":
