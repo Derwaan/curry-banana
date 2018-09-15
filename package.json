@@ -4,12 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node app"
+    "start": "node app",
+    "deploy": "gh-pages -d public"
   },
   "author": "Julien Gomez",
+  "homepage": "derwaan.github.io",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "gh-pages": "^1.2.0"
   }
 }
